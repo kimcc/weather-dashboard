@@ -1,8 +1,49 @@
-const getWeather = async function(){
+const weatherForm = document.querySelector('#weatherForm');
+const weatherInput = document.querySelector('#weatherInput');
+const searchList = document.querySelector('#searchList');
+let searchArray;
+
+const createRecentSearches = function() {
+    const searchData = JSON.parse(localStorage.getItem('searchItem'));
+
+    searchData.forEach(function(item) {
+        const searchText = document.createElement('li');
+        searchText.textContent = item;
+        searchList.appendChild(searchText);
+    });
+}
+
+const formSubmitHandler = function(event) {
+    // Prevent page refresh
+    event.preventDefault();
+
+    const location = weatherInput.value.trim();
+    if (location) {
+        getWeather(location);
+    }
+
+    saveSearch(location);
+    weatherInput.value = '';
+}
+
+const saveSearch = function(searchTerm) {
+    if (localStorage.getItem('searchItem')) {
+        searchArray = JSON.parse(localStorage.getItem('searchItem'))
+    } else {
+        searchArray = []
+    }
+
+    searchArray.push(searchTerm);
+    localStorage.setItem('searchItem', JSON.stringify(searchArray));
+
+    createRecentSearches();
+}
+
+const getWeather = async function(location){
 
     // Get the latitude and longitude of a location
     const latLongResponse = await fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=london&appid=2c46a57714cfaf2673339b7b2f255993'
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=2c46a57714cfaf2673339b7b2f255993`
     )
     const latLongData = await latLongResponse.json();
     const lat = latLongData.coord.lat;
@@ -30,4 +71,5 @@ const getForecast = function(data) {
     });
 }
 
-getWeather();
+//getWeather();
+weatherForm.addEventListener('submit', formSubmitHandler)
