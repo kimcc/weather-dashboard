@@ -4,7 +4,6 @@ const currentWeather = document.querySelector('#currentWeather');
 const searchList = document.querySelector('#searchList');
 const forecastWeather = document.querySelector('#forecastWeather');
 let searchArray;
-//let location = "";
 
 // Create the recent search items
 const createRecentSearches = function() {
@@ -56,13 +55,8 @@ const formSubmitHandler = function(event) {
     searchList.classList.remove("show");
 }
 
-// Update array by starting from localstorage or create empty one if it doesn't exist
+// Push new searches to the search array
 const saveSearch = function(searchTerm) {
-    // if (localStorage.getItem('searchItem')) {
-    //     searchArray = JSON.parse(localStorage.getItem('searchItem'));
-    // } else {
-    //     searchArray = [];
-    // }
 
     searchArray.push(searchTerm);
     localStorage.setItem('searchItem', JSON.stringify(searchArray));
@@ -124,7 +118,6 @@ const getWeather = async function(location){
     icon.setAttribute('src', `http://openweathermap.org/img/wn/${iconId}@4x.png`);
     icon.setAttribute('alt', 'Weather icon');
 
-    //currentWeather.appendChild(date);
     currentWeather.appendChild(icon);
     currentWeather.appendChild(temp);
     currentWeather.appendChild(today);
