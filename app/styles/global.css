@@ -9,38 +9,38 @@
 
     --badge-low: rgba(144, 180, 223, 0.6);
     --badge-medium: rgba(219, 196, 169, 0.6);
-    --badge-high: #rgba(225, 198, 198, 0.6);
+    --badge-high: rgba(225, 198, 198, 0.6);
 
     --title: 'Barlow Condensed', sans-serif;
     --body: 'Barlow', sans-serif;
 }
 
 h1 {
-    font-family: var(--title);
+    /* font-family: var(--title); */
     color: var(--light-blue-gray);
-    font-weight: 200;
+    /* font-weight: 200; */
     font-size: 7.5em;
 }
 
 h2 {
-    font-family: var(--title);
+    /* font-family: var(--title); */
     color: var(--blue-gray);
-    font-weight: 200;
+    /* font-weight: 200; */
     font-size: 3.5em;
 }
 
 h3 {
-    font-family: var(--body);
+    /* font-family: var(--body); */
     font-size: 1.4em;
     color: var(--blue-gray);
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 
 p, li {
-    font-family: var(--body);
+    /* font-family: var(--body); */
     color: var(--blue-gray);
     font-size: 1em;
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 
 form {
@@ -52,7 +52,7 @@ input {
     background-color: var(--light-beige);
     border-radius: 4px;
     border: 1px solid transparent;
-    font-family: var(--body);
+    /* font-family: var(--body); */
     color: var(--blue-gray);
     text-indent: 32px;
     width: 400px;
@@ -71,7 +71,7 @@ input:-webkit-autofill {
 }
 
 input:-webkit-autofill::first-line {
-    font-family: var(--body);
+    /* font-family: var(--body); */
     color: var(--blue-gray);
 }
 
